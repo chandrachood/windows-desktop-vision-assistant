@@ -1,0 +1,47 @@
+name: Feature request
+description: Propose an enhancement for Vision Assistance App
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your idea.
+        Please focus on user impact, especially accessibility impact.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What user problem are you trying to solve?
+      placeholder: As a visually impaired user, I need ...
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe behavior, hotkeys, and expected output
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any other options you evaluated
+    validations:
+      required: false
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks and tradeoffs
+      description: Backward compatibility, accessibility, and usability concerns
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I reviewed existing issues before opening this request.
+          required: true

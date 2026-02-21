@@ -1,0 +1,6 @@
+google-genai>=0.4.0
+cryptography>=42.0.0
+keyboard>=0.13.5
+pyautogui>=0.9.53
+Pillow>=12.1.1
+pyttsx3>=2.90

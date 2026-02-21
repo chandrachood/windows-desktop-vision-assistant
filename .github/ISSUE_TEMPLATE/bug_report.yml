@@ -1,0 +1,79 @@
+name: Bug report
+description: Report a reproducible problem in Vision Assistance App
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug.
+        Please include enough detail for maintainers to reproduce the issue.
+  - type: dropdown
+    id: run_mode
+    attributes:
+      label: Run mode
+      description: How are you running the app?
+      options:
+        - Python source (python main.py)
+        - Windows EXE (dist/VisionAssistanceApp.exe)
+    validations:
+      required: true
+  - type: input
+    id: app_version
+    attributes:
+      label: App version or commit
+      description: Tag, release version, or commit hash (if known)
+      placeholder: "v1.0.0 or abc1234"
+    validations:
+      required: false
+  - type: dropdown
+    id: os_version
+    attributes:
+      label: OS
+      options:
+        - Windows 11
+        - Windows 10
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Exact sequence of steps and hotkeys
+      placeholder: |
+        1. Start app with ...
+        2. Press ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs (redacted)
+      description: Paste relevant lines from app.log and remove private/sensitive data first
+      render: shell
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I reviewed existing issues before opening this report.
+          required: true
+        - label: I removed secrets and private data from logs/screenshots.
+          required: true

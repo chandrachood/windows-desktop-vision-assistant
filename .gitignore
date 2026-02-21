@@ -1,0 +1,24 @@
+# Python cache and build artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+build/
+dist/
+*.spec
+
+# Virtual environment
+venv/
+.venv/
+
+# Local runtime files
+app.log
+.vision_assistant.lock
+*.wav
+
+# Local secrets
+config.json
+
+# Editor/system files
+.DS_Store
+Thumbs.db

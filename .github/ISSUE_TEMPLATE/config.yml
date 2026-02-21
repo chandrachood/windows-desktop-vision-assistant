@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Support and setup help
+    url: https://github.com/<owner>/<repo>/blob/main/SUPPORT.md
+    about: Start here for setup questions and troubleshooting guidance.
+  - name: Security vulnerability report
+    url: https://github.com/<owner>/<repo>/security/advisories/new
+    about: Use private reporting for security issues. Update this URL after repository creation.
