@@ -69,6 +69,20 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
+## Get Gemini API Key
+
+1. Open Google AI Studio API keys page: `https://aistudio.google.com/api-keys`
+2. Sign in with your Google account.
+3. Click `Create API key`.
+4. If prompted, create or select a Google project.
+5. If AI Studio shows plan or billing options, choose the free tier/free trial path.
+6. Copy the key and keep it private.
+7. Run `VisionAssistanceApp.exe` and paste the key when prompted.
+
+Free usage note:
+- Free credits/quota are usually available for trying Gemini, but they depend on account and region.
+- Limits, labels, and pricing can change, so always confirm current details in your AI Studio account.
+
 ## Configuration
 
 Do not use real credentials in repository files.
