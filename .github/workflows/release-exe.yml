@@ -30,12 +30,16 @@ jobs:
       - name: Build EXE
         run: powershell -ExecutionPolicy Bypass -File .\build_exe.ps1 -NoClean
 
+      - name: Create distribution zip
+        run: Compress-Archive -Path dist/VisionAssistanceApp.exe,dist/config.example.json -DestinationPath dist/VisionAssistanceApp-windows.zip -Force
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: VisionAssistanceApp-windows
           path: |
             dist/VisionAssistanceApp.exe
+            dist/VisionAssistanceApp-windows.zip
             dist/config.example.json
 
       - name: Upload assets to release
@@ -44,4 +48,5 @@ jobs:
         with:
           files: |
             dist/VisionAssistanceApp.exe
+            dist/VisionAssistanceApp-windows.zip
             dist/config.example.json

@@ -4,6 +4,24 @@ Vision Assistance App is a Windows desktop accessibility tool for visually impai
 
 It listens for global hotkeys, captures the current screen, asks Gemini for a description, reads a summary out loud, and lets users navigate details with keyboard shortcuts.
 
+## Download for Windows
+
+[![Download Windows App](https://img.shields.io/badge/Download-Windows%20App-2EA44F?style=for-the-badge)](https://github.com/chandrachood/windows-desktop-vision-assistant/releases/latest/download/VisionAssistanceApp-windows.zip)
+[![Direct EXE](https://img.shields.io/badge/Direct-EXE-0969DA?style=for-the-badge)](https://github.com/chandrachood/windows-desktop-vision-assistant/releases/latest/download/VisionAssistanceApp.exe)
+
+End-user quick start:
+
+1. Click the green `Download Windows App` button above.
+2. Extract the zip and run `VisionAssistanceApp.exe`.
+3. On first run, enter your Gemini API key when prompted.
+4. Press `Ctrl+M` to describe the current screen.
+5. To change API key later, press `Ctrl+Alt+K`.
+
+Notes:
+- `config.json` is auto-created on first run.
+- API key is saved encrypted in local config.
+- If the direct download link says not found, publish the first GitHub release, then retry.
+
 ## Key Features
 
 - Global hotkeys for capture, detail navigation, and exit
@@ -33,6 +51,13 @@ It listens for global hotkeys, captures the current screen, asks Gemini for a de
 Action hotkeys (`Ctrl+M`, `Ctrl+N`, detail navigation) now interrupt current narration first, so users can move to the next step without waiting for speech to finish.
 
 ## Requirements
+
+For end users (EXE mode):
+
+- Windows 10/11
+- Gemini API key
+
+For developers (source mode):
 
 - Windows 10/11
 - Python 3.10+
@@ -96,27 +121,67 @@ Before publishing:
 
 ## Packaging as Windows EXE
 
-This repo includes a build script for reproducible packaging:
+Use these exact steps in PowerShell from project root:
+
+1. Create virtual environment (one-time):
+
+```powershell
+python -m venv venv
+```
+
+2. Activate virtual environment:
+
+```powershell
+.\venv\Scripts\Activate.ps1
+```
+
+3. Install dependencies:
+
+```powershell
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+4. Optional local validation before build:
+
+```powershell
+python -m py_compile main.py
+```
+
+5. Build EXE (console mode):
 
 ```powershell
 .\build_exe.ps1
 ```
 
-Output:
-- `dist\VisionAssistanceApp.exe`
-- `dist\config.example.json`
-
-Windowed build (no console window):
+6. Or build EXE (windowed mode, no console window):
 
 ```powershell
 .\build_exe.ps1 -Windowed
 ```
 
-After packaging:
-1. Copy `dist\VisionAssistanceApp.exe` to your target machine.
-2. Launch it directly (double-click or command line).
-3. Add API key in `%APPDATA%\VisionAssistanceApp\config.json`.
-4. Press `Ctrl+M` to trigger capture and summary.
+7. Verify build output:
+
+- `dist\VisionAssistanceApp.exe`
+- `dist\config.example.json`
+
+8. Test the generated EXE locally:
+
+```powershell
+.\dist\VisionAssistanceApp.exe
+```
+
+9. Optional distribution zip:
+
+```powershell
+Compress-Archive -Path .\dist\VisionAssistanceApp.exe,.\dist\config.example.json -DestinationPath .\dist\VisionAssistanceApp-windows.zip -Force
+```
+
+10. For end users:
+
+- Share the EXE (or zip) on Windows 10/11.
+- On first run, set API key when prompted or with `Ctrl+Alt+K`.
+- Runtime config/log files are stored under `%APPDATA%\VisionAssistanceApp`.
 
 ## Limitations
 

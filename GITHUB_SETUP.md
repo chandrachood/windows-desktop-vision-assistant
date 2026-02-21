@@ -108,7 +108,8 @@ Create a branch protection rule or ruleset for `main`:
 Release assets expected:
 
 1. `VisionAssistanceApp.exe`
-2. `config.example.json`
+2. `VisionAssistanceApp-windows.zip`
+3. `config.example.json`
 
 Suggested release flow:
 
